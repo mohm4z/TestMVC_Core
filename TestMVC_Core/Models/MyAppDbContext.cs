@@ -13,5 +13,7 @@ namespace TestMVC_Core.Models
         public MyAppDbContext(DbContextOptions<MyAppDbContext> options) : base(options)
         {
         }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }

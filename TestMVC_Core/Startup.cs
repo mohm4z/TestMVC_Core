@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using TestMVC_Core.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace TestMVC_Core
 {
     public class Startup
@@ -21,6 +24,8 @@ namespace TestMVC_Core
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MyAppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnectionString")));
+
             services.AddMvc();
         }
 
